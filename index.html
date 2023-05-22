@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Web Basic II</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
+    <link rel="stylesheet" href="plugin/chalkboard/style.css" />
+    <link rel="stylesheet" href="plugin/customcontrols/style.css" />
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown="./src/index.md"></section>
+        <section data-markdown="./src/ch1.md"></section>
+        <section data-markdown="./src/ch2.md"></section>
+        <section data-markdown="./src/ch3.md"></section>
+        <section data-markdown="./src/ch4.md"></section>
+      </div>
+    </div>
+    <script>
+      let sections = document.getElementsByTagName("section");
+      sections = Array.from(sections);
+      sections.map((section) => {
+        section.setAttribute("data-transition", "convex");
+        section.setAttribute("data-separator", "^\r?\n---\r?\n$");
+        section.setAttribute("data-separator-vertical", "^\r?\n--\r?\n$");
+        section.setAttribute("data-separator-notes", "^Note:");
+        section.setAttribute("data-charset", "utf-8");
+      });
+    </script>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/menu/menu.js"></script>
+    <script src="plugin/chalkboard/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        progress: true,
+        history: true,
+        center: true,
+        mouseWheel: true,
+        menu: {
+          // Menu works best with font-awesome installed: sudo apt-get install fonts-font-awesome
+          themes: false,
+          transitions: false,
+          markers: true,
+          hideMissingTitles: true,
+          custom: [
+            {
+              title: "About",
+              icon: '<i class="fa fa-info"></i>',
+              src: "about.html",
+            },
+          ],
+        },
+        customcontrols: {
+          controls: [
+            {
+              id: "toggle-overview",
+              title: "Toggle overview (O)",
+              icon: '<i class="fa fa-th"></i>',
+              action: "Reveal.toggleOverview();",
+            },
+            {
+              icon: '<i class="fa fa-pen-square"></i>',
+              title: "Toggle chalkboard (B)",
+              action: "RevealChalkboard.toggleChalkboard();",
+            },
+            {
+              icon: '<i class="fa fa-pen"></i>',
+              title: "Toggle notes canvas (C)",
+              action: "RevealChalkboard.toggleNotesCanvas();",
+            },
+          ],
+        },
+        plugins: [
+          RevealMarkdown,
+          RevealMenu,
+          RevealNotes,
+          RevealHighlight,
+          RevealChalkboard,
+          RevealCustomControls,
+        ],
+      });
+    </script>
+  </body>
+</html>
