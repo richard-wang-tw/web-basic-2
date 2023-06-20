@@ -52,6 +52,14 @@ src: ./pages/ch3.md
 ---
 
 ---
+src: ./pages/ch4.md
+---
+
+---
+src: ./pages/ch5.md
+---
+
+---
 src: ./pages/end.md
 ---
 

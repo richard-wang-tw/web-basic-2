@@ -14,6 +14,13 @@ image: forest.jpg
 layout: center
 ---
 
+<style>
+
+.slidev-page-4 pre{
+   font-size: 24px !important;
+}
+</style>
+
 ```ts
 type Render = (x: unknown) => View;
 ```
@@ -39,6 +46,9 @@ layout: two-cols
     justify-content: center;
     align-items: center
 }
+.slidev-page-5 pre{
+   font-size: 18px !important;
+}
 </style>
 
 
@@ -57,6 +67,13 @@ type Render = (tree: Tree) => View;
 ---
 layout: center
 ---
+<style>
+
+.slidev-page-6 pre{
+   font-size: 24px !important;
+   line-height: 24px !important;
+}
+</style>
 
 ```ts
 type Node = { children: Node[]; attributes: NodeAttributes };
@@ -80,20 +97,20 @@ const render:Render = (node: MyNode) => {
 layout: center
 ---
 
-## 🙋 How to update the view ?
+# 🙋 How to update the view ?
 
 
 ---
 layout: center
 ---
 
-## 🙋 How to continuously update the view ?
+# 🙋 How to continuously update the view ?
 
 ---
 layout: center
 ---
 
-## 🙋 How users interact with the continuously updating view ?
+# 🙋 How users interact with the updating view ?
 
 ---
 transition: fade-out

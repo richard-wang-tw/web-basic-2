@@ -177,6 +177,23 @@ layout: center
 
 <img src="/ch3/2023-05-23-02-17-37.png" style="width:700px"/>
 
+---
+layout: center
+---
+
+<img src="/ch3/webapp2.svg" style="width:800px"/>
+
+
+---
+layout: center
+---
+
+<div style="display:flex">
+<img src="/ch3/ngrx.png" style="width:200px"/>
+<img src="/ch3/vuex.png" style="width:200px"/>
+<img src="/ch3/redux.png" style="width:200px"/>
+</div>
+
 
 
 ---
@@ -199,6 +216,7 @@ layout: center
 
 ---
 layout: center
+transition: fade-out
 ---
 
 <style>
