@@ -1,20 +1,97 @@
 ---
 layout: intro-image-right
-image: forest.jpg
+image: montain.jpg
 ---
 
-# How to store data in browser ? 
+<style>
+#slideshow pre {
+   font-size: 28px !important;
+   line-height: 32px !important;
+}
+</style>
 
-<!-- 先請大家想想看 -->
+
+
+# Composition
+
+## in Effect-TS / schema
 
 ---
 layout: center
 ---
 
-**storage type** |**validity** | **upper limit** | **example**
--|----------|---------|---------
-session storage | session | 10 MB| sessionStorage.setItem("key", "value");
-local storage | - | 10 MB| localStorage.setItem("myCat", "Tom");
-cookie | flexible | 4 KB| document.cookie="username=John Doe";
-indexed db | - |  50 MB / flexible | window.indexedDB.open("xxx", 3);
+## How to change start with A to start with B
+
+```ts
+const startWithA = pipe(
+    S.string,
+    S.filter((s: string) => s[0] === 'A'), 
+  )
+
+const carA = S.struct({
+    make: S.string, 
+    model: startWithA,
+    date: S.Date
+})
+```
+
+---
+layout: center
+---
+
+
+
+# Omit and Extend
+
+
+```ts
+const startWithB = pipe(
+    S.string,
+    S.filter((s: string) => s[0] === 'A'), 
+  )
+
+const carB = pipe(
+  carA,
+  S.omit('model'),
+  S.extend(startWithB)
+)
+```
+
+## How to get models of cars ?
+
+
+---
+layout: center
+---
+
+# Pick
+
+
+```ts
+const startWithB = pipe(
+    S.string,
+    S.filter((s: string) => s[0] === 'A'), 
+  )
+
+const models = pipe(
+  S.union(
+    pipe(carA, S.pick('model')),
+    pipe(carB, S.pick('model')),
+  )
+)
+```
+
+---
+layout: center
+transition: fade-out
+---
+
+## There are more utilities in [README](https://github.com/Effect-TS/schema#readme) !
+
+- optional
+- optional with default value
+- partial
+- required
+- recursive types
+- ....
 
